@@ -1,0 +1,81 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">Adivina el Pokemon</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="menu_titulo" translatable="false">Adivina el Pokemon</string>
+    <string name="menu_jugar" translatable="false">Jugar</string>
+    <string name="menu_acerca" translatable="false">Acerca</string>
+    <string name="menu_Salir" translatable="false">Salir</string>
+    <string name="menu_otro" translatable="false">Lista de Pokemon</string>
+    <string name="boton_text_aceptar" translatable="false">Aceptar</string>
+    <string name="pregunta" translatable="false">¿Quién es ese Pokemon?</string>
+    <string name="loser_text" translatable="false">Intentalo de nuevo</string>
+    <string name="total_puntos" translatable="false">Intentos : </string>
+    <string name="msg_ganaste" translatable="false">Adivinaste todos los Pokemons</string>
+    <string name="msg_perdiste" translatable="false"> Te has quedado sin intentos. Intentalo de Nuevo </string>
+    <string name="title_map" translatable="false">Map</string>
+    <string name="title_feed" translatable="false">Feed</string>
+    <string name="title_search" translatable="false">Search</string>
+    <string name="extras" translatable="false">Extras</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="animal" translatable="false">Total animals spotted in Cardiff: </string>
+    <string name="animal_count" translatable="false">184(Going to link into full database)</string>
+    <string name="animal_in_database" translatable="false">"Types of animals in the database:</string>
+    <string name="animal_in_database_count" translatable="false">209</string>
+    <string name="number_of_birds_string" translatable="false">Birds in the database:</string>
+    <string name="birds" translatable="false">163</string>
+    <string name="number_of_reptiles_string" translatable="false">Reptiles in the database:</string>
+    <string name="reptiles" translatable="false">18</string>
+    <string name="number_of_mammals_string" translatable="false">Mammals in the database:</string>
+    <string name="mammals" translatable="false">27</string>
+    <string name="number_of_invert_string" translatable="false">Invertebrates in the database:</string>
+    <string name="invert" translatable="false">56</string>
+    <string name="username" translatable="false">Username</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="login" translatable="false">LOGIN</string>
+    <string name="not_registered" translatable="false">Not Registered?</string>
+    <string name="register" translatable="false">REGISTER</string>
+    <string name="confirm_password" translatable="false">Confirm Password</string>
+    <string name="already_registered" translatable="false">Already Registered?</string>
+    <string name="existing_account_login" translatable="false" tools:ignore="MissingTranslation">Login</string>
+    <string name="unknown" translatable="false">Unknown</string>
+    <string name="image_of_animal" translatable="false">image of animal</string>
+    <string name="image_of_an_animal" translatable="false">image of an animal</string>
+    <string name="colours" translatable="false">Colours</string>
+    <string name="no_results" translatable="false">No results</string>
+    <string name="max_length" translatable="false">Max length</string>
+    <string name="min_length" translatable="false">Min length</string>
+    <string name="type" translatable="false">Type</string>
+
+    <string-array name="colours">
+        <item>Black</item>
+        <item>White</item>
+        <item>Grey</item>
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+    </string-array>
+
+    <string-array name="types">
+        <item>Select a type</item>
+        <item>Bird</item>
+        <item>Invertebrate</item>
+    </string-array>
+
+    <string-array name="min_length">
+        <item>Select a minimum size(cm)</item>
+        <item>10</item>
+        <item>20</item>
+        <item>70</item>
+        <item>140</item>
+    </string-array>
+
+    <string-array name="max_length">
+        <item>Select a maximum size(cm)</item>
+        <item>10</item>
+        <item>20</item>
+        <item>40</item>
+        <item>90</item>
+        <item>160</item>
+    </string-array>
+</resources>

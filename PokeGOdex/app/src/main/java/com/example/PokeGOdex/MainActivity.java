@@ -1,12 +1,20 @@
 package com.example.PokeGOdex;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements ListaPokemonAdapt
     private RecyclerView recyclerView;
     private ListaPokemonAdapter listaPokemonAdapter;
     private Button jugarp;
+    private Button btNotificacion;
+    private PendingIntent pendingIntent;
+    private final static String CHANNEL_ID = "NOTIFICACION";
+    private final static int NOTIFICACION_ID = 0;
 
     private int offset;
     //    private boolean aptoParaCargar;
@@ -83,6 +95,14 @@ public class MainActivity extends AppCompatActivity implements ListaPokemonAdapt
                 break;
 
         }
+        jugarp = findViewById(R.id.button);
+        jugarp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createNotificationChannel();
+                createNotification();
+            }
+        });
 
 
         recyclerView = findViewById(R.id. recyclerView);
@@ -99,6 +119,8 @@ public class MainActivity extends AppCompatActivity implements ListaPokemonAdapt
 
                 Intent intent = new Intent(MainActivity.this, Principal.class);
                 startActivity(intent);
+                createNotificationChannel();
+                createNotification();
             }
         });
 //        Método para cargar los datos de 20 en 20 cuando la llamada a service.obtenerListaPokemon tiene limit 20 y offset+=20
@@ -168,5 +190,29 @@ public class MainActivity extends AppCompatActivity implements ListaPokemonAdapt
         Intent intentPokemonActivity = new Intent(MainActivity.this, PokemonActivity.class);
         intentPokemonActivity.putExtra("id", clickedItemIndex+1);
         startActivity(intentPokemonActivity);
+    }
+
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "Noticacion";
+            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, name, NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
+
+    private void createNotification(){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID);
+        builder.setSmallIcon(R.drawable.ic_sms_black_24dp);
+        builder.setContentTitle("Notificacion Android");
+        builder.setContentText("Acabas de entrar al juego de Pokemon");
+        builder.setColor(Color.BLUE);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        builder.setLights(Color.MAGENTA, 1000, 1000);
+        builder.setVibrate(new long[]{1000,1000,1000,1000,1000});
+        builder.setDefaults(Notification.DEFAULT_SOUND);
+
+        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+        notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
     }
 }
